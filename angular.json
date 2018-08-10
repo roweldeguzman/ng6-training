@@ -27,7 +27,9 @@
               "./node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css",
               "./src/styles/app.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {

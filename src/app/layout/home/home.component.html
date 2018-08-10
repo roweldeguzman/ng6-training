@@ -2,9 +2,10 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group rg-float">
-				<app-input type="email" value="{{testValue}}" isFloat="true" floatTxt="sample"></app-input>
+				{{testValue}}
+				<app-input type="text" model="testValue" value="testValue" isFloat="true" floatTxt="sample" isActive="false" placeholder="Test Input"></app-input>
 			</div>
-			<button (click)="ChangeVal()" class="btn btn-primary waves-effect">Change Value</button>
+			<button (click)="changeVal()" class="btn btn-primary waves-effect">Change Value</button>
 
 			<div class="form-group rg-float">
 				<div class="rg-line">

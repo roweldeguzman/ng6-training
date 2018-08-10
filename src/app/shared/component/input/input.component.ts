@@ -1,11 +1,10 @@
-import { Component, Input } from '@angular/core'
-
-
+import { Component, Input, OnInit } from '@angular/core'
+import { NgModel } from '@angular/forms';
 @Component({
 	selector: "app-input",
 	template: `
 		<div class="rg-line {{isActive}}">
-			<input type="{{type}}" value="{{value}}" class="form-control input-sm"/>
+			<input [ngModel]="model" [type]="type" [value]="value"  [placeholder]="placeholder" />
 			<div class="rg-input-underline">
 				<span class="rg-input-ripple"></span>
 			</div>
@@ -14,10 +13,17 @@ import { Component, Input } from '@angular/core'
 	`
 })
 
-export class AppInput {
-	@Input() type:any;
+export class AppInput implements OnInit{
+	
+	@Input() type: any;
+	@Input() model: NgModel;
 	@Input() value: any;
 	@Input() isActive: string;
 	@Input() isFloat: boolean;
 	@Input() floatTxt: string;
+	@Input() placeholder: string;
+
+	ngOnInit() {
+		console.log(this.model)
+	}
 }

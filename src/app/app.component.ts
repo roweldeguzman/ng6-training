@@ -9,12 +9,7 @@ import { BaseComponent } from './baseComponet'
 export class AppComponent extends BaseComponent{
 	constructor(public injector: Injector) { 
 		super(injector);
-		this.test()
 	}
 	title = 'training';
-	testValue = "Rowel de Guzman";
 
-	ChangeVal() {
-		this.testValue = "rowel.deguzman@gmail.com"+Math.random();
-	}
 }

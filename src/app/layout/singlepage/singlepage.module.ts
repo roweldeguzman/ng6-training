@@ -3,14 +3,15 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /* Component */
-import { HomeComponent } from './home.component';
+import { SinglepageComponent } from './singlepage.component';
+
 /* Router */
 import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
 	{
-		path: '', component: HomeComponent
+		path: '', component: SinglepageComponent
 	}, {
-		path: '**', component: HomeComponent
+		path: '**', component: SinglepageComponent
 	}
 ];
 
@@ -20,8 +21,8 @@ const routes: Routes = [
 		RouterModule.forChild(routes),
 		CommonModule
 	],
-	declarations: [HomeComponent],
+	declarations: [SinglepageComponent],
 	schemas: [NO_ERRORS_SCHEMA]
 })
-export class HomeModule { }
+export class SinglepageModule { }
 

@@ -11,8 +11,16 @@ const routes: Routes = [
 		path: "",
 		component: LayoutComponent,
 		children: [
-			{ path: 'home', loadChildren: './home/home.module#HomeModule' }
-		]
+			{ path: 'home', loadChildren: './home/home.module#HomeModule' },
+			{ path: 'about', loadChildren: './about/about.module#AboutModule' },
+			{ path: 'contact-us', loadChildren: './contact-us/contact-us.module#ContactUsModule' },
+			{ path: 'carrer', loadChildren: './carrer/carrer.module#CarrerModule' }
+		],
+	}, {
+		path: "singlepage",
+		loadChildren: './singlepage/singlepage.module#SinglepageModule',
+	}, {
+		path: '**', redirectTo: "/"
 	}
 ]
 @NgModule({
