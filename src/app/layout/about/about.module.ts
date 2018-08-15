@@ -8,21 +8,27 @@ import { AboutComponent } from './about.component';
 /* Router */
 import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
-  {
-    path: '', component: AboutComponent
-  }, {
-    path: '**', component: AboutComponent
-  }
+	{
+		path: '', component: AboutComponent,
+		children: [
+			{
+				path: "info",
+				loadChildren: "./info/info.module#InfoModule"
+			}
+		]
+	}, {
+		path: '**', component: AboutComponent
+	}
 ];
 
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes),
-    CommonModule
-  ],
-  declarations: [AboutComponent],
-  schemas: [NO_ERRORS_SCHEMA]
+	imports: [
+		RouterModule.forChild(routes),
+		CommonModule
+	],
+	declarations: [AboutComponent],
+	schemas: [NO_ERRORS_SCHEMA]
 })
 export class AboutModule { }
 

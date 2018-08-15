@@ -83,6 +83,16 @@
 					<span>Single Page</span>
 				</a>
 			</li>
+			<li>
+				<a [routerLink]="'/users/list'" [ngClass]="{'active': contains('typography')}">
+					<div class="icon-circle">
+						<i class="zmdi zmdi-format-underlined"></i>
+					</div>
+					<!--
+								-->
+					<span>Users</span>
+				</a>
+			</li>
 		</ul>
 		<div class="bottom-collapser">
 			<div class="bottom-toggler" (click)="expandNav()">

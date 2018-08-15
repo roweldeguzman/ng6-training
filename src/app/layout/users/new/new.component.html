@@ -1,0 +1,19 @@
+<div class="col-sm-4">
+    <div class="form-group rg-float">
+        <app-input type="text" [(model)]="user.firstName" (change)="user.firstName = $event.target.value" isFloat="true" floatTxt="First Name"></app-input>
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="form-group rg-float">
+        <app-input type="text" [(model)]="user.lastName" (change)="user.lastName = $event.target.value" isFloat="true" floatTxt="Last Name"></app-input>
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="form-group rg-float">
+        <app-input type="text" [(model)]="user.email" (change)="user.email = $event.target.value" isFloat="true" floatTxt="Email"></app-input>
+    </div>
+</div>
+<div class="col-sm-12">
+    <button (click)="save()" class="btn btn-primary">Save Data</button>&nbsp;
+    <button routerLink="/users/list" class="btn btn-warning">Cancel</button>&nbsp;
+</div>

@@ -1,29 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core'
+
 import { NgModel } from '@angular/forms';
 @Component({
 	selector: "app-input",
-	template: `
-		<div class="rg-line {{isActive}}">
-			<input [ngModel]="model" [type]="type" [value]="value"  [placeholder]="placeholder" />
-			<div class="rg-input-underline">
-				<span class="rg-input-ripple"></span>
-			</div>
-		</div>
-		<label *ngIf="isFloat">{{floatTxt}}</label>
-	`
+	templateUrl: './input.component.html'
 })
 
-export class AppInput implements OnInit{
-	
+export class AppInput implements OnInit {
+	constructor() { }
 	@Input() type: any;
 	@Input() model: NgModel;
-	@Input() value: any;
 	@Input() isActive: string;
 	@Input() isFloat: boolean;
 	@Input() floatTxt: string;
 	@Input() placeholder: string;
+    @Input() classes: string;
+    @Input() id: string;
+    @Output() change = new EventEmitter<string>();
 
 	ngOnInit() {
-		console.log(this.model)
+        this.isActive = typeof this.isActive
 	}
 }

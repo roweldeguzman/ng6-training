@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ServiceService } from './services/service.service';
 import { LocalStorageService } from './services/storage.service';
 
+import { Router } from '@angular/router';
 
 declare let $: any;
 declare let window: any;
@@ -12,12 +13,18 @@ export class BaseComponent {
 	protected http: HttpClient;
 	protected service: ServiceService;
 	protected localstorage: LocalStorageService;
-	constructor(public injector: Injector) {
+    protected router: Router;
+    constructor(public injector: Injector) {
 		this.http = injector.get(HttpClient);
 		this.service = injector.get(ServiceService);
 		this.localstorage = injector.get(LocalStorageService);
+        this.router = injector.get(Router)
 	}
-	test() { }
+    public baseUrl = '/api';
+    logout() {
+        this.localstorage.remove("login");
+        this.router.navigate(['/login']);
+    }
 	public expandNavHead() {
 		$("aside, .overlay").toggleClass("active");
 		if ($(".bottom-toggler").hasClass("active")) {

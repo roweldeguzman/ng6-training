@@ -1,0 +1,17 @@
+<div class="rg-line" [ngClass]="{'rg-toggled': isActive == 'string'}">
+	<input 
+	 placeholder="{{placeholder}}"
+	 class="form-control input-sm"
+	 rg-line
+	 [(ngModel)]="model"
+	 [type]="type"
+	 (change)="change.next($event)"
+	 [ngClass]="classes"
+	 [id]="id"
+	 #input
+	>
+	<div class="rg-input-underline">
+		<span class="rg-input-ripple"></span>
+	</div>
+</div>
+<label class="rg-label" *ngIf="isFloat">{{floatTxt}}</label>

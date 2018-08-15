@@ -1,21 +1,9 @@
-<div class="container">
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="form-group rg-float">
-				{{testValue}}
-				<app-input type="text" model="testValue" value="testValue" isFloat="true" floatTxt="sample" isActive="false" placeholder="Test Input"></app-input>
-			</div>
-			<button (click)="changeVal()" class="btn btn-primary waves-effect">Change Value</button>
-
-			<div class="form-group rg-float">
-				<div class="rg-line">
-					<input class="form-control input-sm" rg-line="" type="text">
-					<div class="rg-input-underline">
-						<span class="rg-input-ripple"></span>
-					</div>
-				</div>
-				<label class="rg-label">Name</label>
-			</div>
+<div class="row">
+	<div class="col-sm-12">
+		<div class="form-group rg-float">
+			<app-input type="text" [(model)]="testValue" (change)="testValue = $event.target.value" isFloat="true" floatTxt="sample" isActive [id]="'sampleID'"></app-input>
 		</div>
+		<button (click)="changeVal()" class="btn btn-primary waves-effect">Change Value</button>&nbsp;
+		<button (click)="getValue()" class="btn btn-primary waves-effect">Get Value</button>
 	</div>
 </div>
