@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core'
+import { Component, Input, OnInit, Output, EventEmitter, SimpleChanges } from '@angular/core'
 
 import { NgModel } from '@angular/forms';
 @Component({
@@ -19,6 +19,15 @@ export class AppInput implements OnInit {
     @Output() change = new EventEmitter<string>();
 
 	ngOnInit() {
-        this.isActive = typeof this.isActive
+        
 	}
+
+
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.isActive && changes.isActive.currentValue.toString().trim().length > 0) {
+            this.isActive = "true";
+        } else {
+            this.isActive = "fasle";
+        }
+    }
 }

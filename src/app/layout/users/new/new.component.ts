@@ -25,7 +25,6 @@ export class NewComponent extends BaseComponent implements OnInit {
         }, 10)
         
     }
-
     save() {
         this.http.post(this.baseUrl + "/index.php", {
             "firstName": this.user.firstName,

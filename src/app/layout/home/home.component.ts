@@ -10,7 +10,7 @@ import { BaseComponent } from '../../baseComponet'
 export class HomeComponent extends BaseComponent implements OnInit {
 
 	constructor(public injector: Injector) { super(injector); }
-    testValue = "asdasdad";
+    testValue = "Sample message";
 	ngOnInit() {
 	}
     getValue () {

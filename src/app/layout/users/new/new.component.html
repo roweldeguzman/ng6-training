@@ -1,16 +1,16 @@
 <div class="col-sm-4">
     <div class="form-group rg-float">
-        <app-input type="text" [(model)]="user.firstName" (change)="user.firstName = $event.target.value" isFloat="true" floatTxt="First Name"></app-input>
+        <app-input type="text" [model]="user.firstName" (change)="user.firstName = $event.target.value" isFloat="true" floatTxt="First Name" isActive="{{user.firstName}}"></app-input>
     </div>
 </div>
 <div class="col-sm-4">
     <div class="form-group rg-float">
-        <app-input type="text" [(model)]="user.lastName" (change)="user.lastName = $event.target.value" isFloat="true" floatTxt="Last Name"></app-input>
+        <app-input type="text" [model]="user.lastName" (change)="user.lastName = $event.target.value" isFloat="true" floatTxt="Last Name" isActive="{{user.lastName}}"></app-input>
     </div>
 </div>
 <div class="col-sm-4">
     <div class="form-group rg-float">
-        <app-input type="text" [(model)]="user.email" (change)="user.email = $event.target.value" isFloat="true" floatTxt="Email"></app-input>
+        <app-input type="text" [model]="user.email" (change)="user.email = $event.target.value" isFloat="true" floatTxt="Email" isActive="{{user.email}}"></app-input>
     </div>
 </div>
 <div class="col-sm-12">
