@@ -1,12 +1,57 @@
 import { Injectable } from '@angular/core';
 
-
 declare let $: any;
-declare let window: any
 @Injectable()
 export class ServiceService {
 	constructor() { }
-	
+    public paginate(data, pager, method) {
+        let pageHtml = '',
+            pmin = 0,
+            pmax = 0,
+            adjacents = 1;
+
+        pageHtml += '<ul id="pagination" class="pagination pagination-sm" style="margin: 0; padding: 0;">';
+        /*pageHtml += '<li *ngIf="winWidth >= 767"><span>Page '+data.currentPage+' of '+data.noOfPage+'</span></li>';*/
+        if (data.currentPage == '1') {
+            pageHtml += '<li class="disabled"><a><i class="zmdi zmdi-chevron-left zmdi-hc-fw"></i> Previous</a></li>';
+        }
+        else {
+            pageHtml += '<li><a style="cursor: pointer;" (click)="parent.' + method + '(' + data.prevPage + ',$event)"><i class="zmdi zmdi-chevron-left zmdi-hc-fw"></i> Previous</a></li>';
+        }
+        if (pager > (adjacents + 1)) {
+            pageHtml += '<li><a style="cursor: pointer;" (click)="parent.' + method + '(1,$event)">1</a></li>';
+        }
+        if (pager > (adjacents)) {
+            pageHtml += '<li class="hidden-xs"><span>...</span></li>';
+        }
+        pmin = (pager > adjacents) ? (pager - adjacents) : 1;
+        pmax = (pager < (data.noOfPage - adjacents)) ? (pager + adjacents) : data.noOfPage
+        for (var i = pmin; i <= pmax; i++) {
+            if (i == data.currentPage) {
+                pageHtml += '<li class="active"><a style="cursor: pointer;"><span>' + i + '</span></a></li>';
+            }
+            else if (i == 1) {
+                pageHtml += '<li class="hidden-xs"><a style="cursor: pointer;" (click)="parent.' + method + '(' + i + ',$event)">' + i + '</a></li>';
+            }
+            else {
+                pageHtml += '<li class="hidden-xs"><a style="cursor: pointer;" (click)="parent.' + method + '(' + i + ',$event)">' + i + '</a></li>';
+            }
+        }
+        if (pager < ((data.noOfPage - adjacents) - 1)) {
+            pageHtml += '<li class="hidden-xs"><span>...</span></li>';
+        }
+        if (pager < (data.noOfPage - adjacents)) {
+            pageHtml += '<li><a style="cursor: pointer;" (click)="parent.' + method + '(' + data.noOfPage + ',$event)">' + data.noOfPage + '</a></li>';
+        }
+        if (data.currentPage == data.noOfPage) {
+            pageHtml += '<li class="disabled"><a>Next <i class="zmdi zmdi-chevron-right zmdi-hc-fw"></i></a></li>';
+        }
+        else {
+            pageHtml += '<li><a style="cursor: pointer;" (click)="parent.' + method + '(' + data.nextPage + ',$event)">Next <i class="zmdi zmdi-chevron-right zmdi-hc-fw"></i></a></li>';
+        }
+        pageHtml += '</ul>';
+        return pageHtml;
+    }
 	/**
 	 * 
 	 * @param needle	string

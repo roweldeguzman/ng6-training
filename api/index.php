@@ -38,11 +38,14 @@
         }
     }
     else if ($method == "GET") {
-        $query  =   $connect->query("SELECT * FROM users"); 
+        $page   =   $obj->get("page");
+        $offset     =   ($page-1) * 2;
+        
+        $query  =   $connect->query("SELECT * FROM users LIMIT 2 OFFSET $offset"); 
         
         if (!$connect->error){
             if ($query->num_rows > 0){
-                
+                $total  =   $connect->query("SELECT * FROM users");
                 $data   =   array();
                 while($row = $query->fetch_object()){
                     $data[] =   array(
@@ -56,7 +59,8 @@
                 echo $obj->respond(array(
                     'statusCode'    =>  200,
                     'devMessage'    =>  array(
-                        "data"      =>  $data
+                        "data"      =>  $data,
+                        "pageInfo"  =>  $obj->paginateDisplay(2, $page, $total->num_rows)
                     )
                 ));
             }

@@ -9,7 +9,7 @@ import { LocalStorageService } from './services/storage.service';
 import { AppRoutingModule } from './app.route';
 
 
-
+import { DynamicBuilder } from './shared/dynamic.builder'
 @NgModule({
 	declarations: [ AppComponent ],
 	imports: [
@@ -24,6 +24,7 @@ import { AppRoutingModule } from './app.route';
         },
 		ServiceService,
 		LocalStorageService, 
+        DynamicBuilder
 	],
 	bootstrap: [AppComponent],
 	schemas: [NO_ERRORS_SCHEMA]

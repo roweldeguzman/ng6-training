@@ -6,6 +6,8 @@ import { LocalStorageService } from './services/storage.service';
 
 import { Router } from '@angular/router';
 
+import { DynamicBuilder } from './shared/dynamic.builder';
+
 declare let $: any;
 declare let window: any;
 
@@ -14,11 +16,13 @@ export class BaseComponent {
 	protected service: ServiceService;
 	protected localstorage: LocalStorageService;
     protected router: Router;
+    protected builder: DynamicBuilder;
     constructor(public injector: Injector) {
 		this.http = injector.get(HttpClient);
 		this.service = injector.get(ServiceService);
 		this.localstorage = injector.get(LocalStorageService);
-        this.router = injector.get(Router)
+        this.router = injector.get(Router);
+        this.builder = injector.get(DynamicBuilder)
 	}
     public baseUrl = '/api';
     logout() {
